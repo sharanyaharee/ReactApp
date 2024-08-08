@@ -1,0 +1,132 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* border-bottom: 1px solid rgb(230, 225, 225); */
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+.list {
+  display: flex;
+  justify-content: space-around;
+  gap: 15;
+}
+
+.list-items {
+  list-style-type: none;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.logo {
+  height: 15vh;
+}
+.body-layout {
+  margin: 5px 200px;
+}
+.scroll-heading {
+  font-weight: bold;
+  margin: 35px;
+}
+.round-image {
+  width: 30vw;
+  height: 20vh;
+}
+.scroll-image-container {
+  display: flex;
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scroll-behavior: smooth;
+}
+.scroll-image-container::-webkit-scrollbar {
+  display: none; 
+}
+.filter-btn {
+  padding: 13px;
+  margin: 15px;
+  background-color: orangered;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  justify-content: space-around;
+  background-color: #f0f0f0;
+}
+.card {
+  background-color: #ffffff;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  margin: 8px 4px;
+  padding: 10px;
+  border-radius: 20px;
+  width: 270px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.shimmer-height{
+  height:240px;
+}
+.shimmer-btn-container{
+  display: flex;
+  background-color:#ffffff;
+  margin:17px;
+}
+.shimmer-btn{
+  background-color:  #f0f0f0;
+  height: 30px;
+  width:120px;
+  margin:7px 12px 10px 0px;
+  padding:10px;
+  border: none;
+}
+.shimmer-image-container{
+  display: flex;
+  background-color: #f0f0f0;
+  align-items: center;
+  justify-content: space-around;
+  margin:4px;
+  padding:20px;
+}
+.shimmer-round-image{
+  background-color: #ffffff;
+  height:80px;
+  width:70px;
+  border-radius: 100%;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.restaurantImg {
+  width: 250px;
+  height: 30vh;
+  border-radius: 20px;
+}
+.restaurant-card{
+  margin:5px;
+}
+.search{
+  width:200px;
+  height:40px;
+  padding:5px;
+  border-radius:10px;
+}
+.search-btn{
+  padding:12px;
+  background-color: orangered;
+  border: none;
+  color:white;
+  border-radius:10px;
+}
