@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { API_URL } from "../utilities/constants";
-import ReactDOM from "react-dom";
+
 const Scroll = () => {
   const [items, setItems] = useState([]);
 
@@ -9,7 +9,7 @@ const Scroll = () => {
       let res = await fetch(API_URL);
       let data = await res.json();
       setItems(data?.data?.cards[0]?.card?.card?.imageGridCards?.info);
-      console.log(data?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+      // console.log(data?.data?.cards[0]?.card?.card?.imageGridCards?.info);
     };
 
     getData();
@@ -17,7 +17,7 @@ const Scroll = () => {
 
   return (
     <>
-      <div className="body-layout">
+   
         <h1 className="scroll-heading">Whats on your mind?</h1>
         <div className="scroll-image-container">
 
@@ -33,7 +33,7 @@ const Scroll = () => {
                 {/* <div className="arrow" id="left-arrow">&#9664;</div>
           <div className="arrow" id="right-arrow">&#9654;</div> */}
                </div>
-      </div>
+   
     </>
   );
 };
