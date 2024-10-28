@@ -1,4 +1,4 @@
-import React from "react";
+import React,{Suspense, lazy} from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Body from "./components/Body";
@@ -6,8 +6,12 @@ import Header from "./components/Header";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import About from "./components/About";
-import RestInfo from "./components/RestInfo";
+// import RestInfo from "./components/RestInfo";
 import useOnlineStatus from "./utilities/useOnlineStatus";
+import Login from "./components/Login";
+import Shimmer from "./components/Shimmer";
+
+const RestInfo= lazy(()=> import("./components/RestInfo"))
 
 const Layout = () => {
   let status = useOnlineStatus()
@@ -36,16 +40,18 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
-        errorElement: <Error />,
       },
       {
         path: "/contact",
         element: <Contact />,
-        errorElement: <Error />,
       },
       {
         path:"/restaurants/:restId",
-        element: <RestInfo/>
+        element:(<Suspense fallback={<Shimmer/>}> <RestInfo/></Suspense>)
+      },
+      {
+        path:"/login",
+        element:<Login/>
       }
     ],
   },

@@ -1,8 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState,useEffect } from "react";
+import { useState,useEffect} from "react";
 import useRestList from "../utilities/useRestList";
 import Shimmer from "./Shimmer";
 import Scroll from "./Scroll";
+import { withPromotedLabel } from "./RestaurantCard";
+
+
 
 const Body = () => {
   let [filterRest, setFilterRest] = useState([]);
@@ -17,12 +20,15 @@ const Body = () => {
 
 
   if (!restData || restData.length === 0) return <Shimmer />;
+  let Promoted = withPromotedLabel(RestaurantCard)
+ 
+
 
   return (
-    <div className="body-layout">
+    <div >
       <Scroll />
       <input
-        className="search"
+        className="w-60 ms-44 p-2 border border-orange-500 rounded-lg"
         type="search"
         value={inputData}
         onChange={(e) => {
@@ -30,7 +36,7 @@ const Body = () => {
         }}
       />
       <button
-        className="search-btn"
+        className="border me-3 rounded-lg bg-orange-300 p-2"
         onClick={() => {
           setFilterRest(
             restData?.filter(({ info }) =>
@@ -44,7 +50,7 @@ const Body = () => {
       </button>
 
       <button
-        className="filter-btn"
+        className="border rounded-lg m-3 bg-orange-300 p-2"
         onClick={() => {
           setFilterRest(restData);
         }}
@@ -52,7 +58,7 @@ const Body = () => {
         All
       </button>
       <button
-        className="filter-btn"
+        className="border rounded-lg  bg-orange-300 p-2"
         onClick={() => {
           setFilterRest(restData?.filter(({ info }) => info.avgRating > 4.5));
         }}
@@ -60,14 +66,22 @@ const Body = () => {
         Top Rated Restaurants
       </button>
 
-      <div className="container">
+      <div className="flex flex-wrap justify-between my-4 mx-44">
         
       {filterRest.length === 0?(<h2>No items found!</h2>):
         
         filterRest?.map(({ info }) => {
+          // console.log("bhbhbhbh",info)
           return (
-            <div className="card" key={info.id}>
-              <RestaurantCard info={info} />
+          
+            
+            <div className=" w-72 mb-3 hover:bg-slate-100 hover:scale-105" key={info.id}>
+            {
+              
+              info.veg?( <Promoted info={info} />):(<RestaurantCard info={info}/>)
+            }
+            
+             
             </div>
           );
         })}

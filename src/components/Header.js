@@ -7,17 +7,17 @@ import useOnlineStatus from "../utilities/useOnlineStatus";
 const Header = () => {
   let status = useOnlineStatus();
   return (
-    <div className="header">
-      <div className="left-header">
+    <div className="flex items-center justify-between  shadow-md">
+      <div className=" ml-60 my-3">
         <Link to="/">
-          <div className="logo-container">
-            <img className="logo" alt="food-logo" src={LOGO_URL} />
+          <div className="w-36 ">
+            <img alt="food-logo" src={LOGO_URL} />
           </div>
         </Link>
       </div>
-      <div className="right-header">
-        <ul className="list">
-          <li className="list-items">Online:{status ?"✅" : "🔴"} </li>
+      <div className="font-bold me-36">
+        <ul className="flex justify-between gap-8 font-bold mr-40 ">
+          <li className="list-items">Online:{status ? "✅" : "🔴"} </li>
           <Link to="/">
             <li className="list-items">Home</li>
           </Link>
@@ -28,7 +28,9 @@ const Header = () => {
             <li className="list-items">Contact</li>
           </Link>
           <li className="list-items">Cart</li>
-          <li className="list-items">Login</li>
+          <Link to="/login">
+            <li className="list-items">Login</li>
+          </Link>
         </ul>
       </div>
     </div>
